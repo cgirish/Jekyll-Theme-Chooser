@@ -1,4 +1,4 @@
-theme: jekyll-theme-merlot
+theme: jekyll-theme-minimal
 name: Tils
 markdown: redcarpet
 rouge: true
