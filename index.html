@@ -7,8 +7,11 @@ overview: true
 <ul>
   {% for post in site.posts %}
     <li>
-      {{post.author}}
       {{post.content}}
+      {{post.tags}}
+      <div class="author">
+        - {{post.author}}
+      </div>
     </li>
   {% endfor %}
 </ul>
