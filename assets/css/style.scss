@@ -1,16 +1,32 @@
 ---
 ---
+$large-breakpoint: 42em !default;
+$medium-breakpoint: 24em !default;
 
 @import "{{ site.theme }}";
 
 .page-header {
   color: #fff;
   padding: 24px 0;
-  background: #8860a8;
+  background: #5774b8;
 
   h1 {
     font-size: 24px;
     line-height: 48px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+
+    small {
+      display: block;
+    }
+
+    &:before, &:after {
+      content: "- - -";
+      opacity: 0.2;
+      margin: 0px 1em;
+      font-size: 1em;
+      display: inline-block;
+    }
   }
 }
 
@@ -20,8 +36,12 @@
     li {
       margin: 0 0 24px;
       padding: 24px 0 48px 0;
-      box-shadow: inset 0 -4px 0 0 #ccc;
+      box-shadow: inset 0 -4px 0 0 #5774b8;
     }
+  }
+
+  .highlight {
+    margin-bottom: 24px;
   }
 }
 
@@ -29,4 +49,21 @@
   font-size: 80%;
   font-style: italic;
   text-align: right;
+}
+
+.entry-meta {
+  padding: 5px 0;
+  font-size: 12px;
+  border-top: 1px dotted #ccc;
+  border-bottom: 1px dotted #ccc;
+
+  span {
+    margin-right: 48px;
+    display: inline-block;
+
+    small {
+      color: #999;
+      font-size: 100%;
+    }
+  }
 }

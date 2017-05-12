@@ -3,14 +3,14 @@ layout: default
 overview: true
 ---
 
-
 <ul>
   {% for post in site.posts %}
     <li>
       {{post.content}}
-      {{post.tags}}
-      <div class="author">
-        - {{post.author}}
+      <div class="entry-meta">
+        <span><small>author:</small> {{post.author}}</span>
+        <span><small>tags:</small> {{post.tags}}</span>
+        <span><small>date:</small> {{post.date}}</span>
       </div>
     </li>
   {% endfor %}
