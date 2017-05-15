@@ -8,9 +8,9 @@ overview: true
     <li>
       {{post.content}}
       <div class="entry-meta">
-        <span><small>author:</small> {{post.author}}</span>
-        <span><small>tags:</small> {{post.tags}}</span>
-        <span><small>date:</small> {{post.date}}</span>
+        <span><small class="profile icon"></small> {{post.author}}&nbsp;</span>
+        <span><small class="tag icon"></small> {{post.tags}}&nbsp;</span>
+        <span><small class="calendar icon"></small> {{post.date | date: "%d/%m/%Y" }}&nbsp;</span>
       </div>
     </li>
   {% endfor %}
