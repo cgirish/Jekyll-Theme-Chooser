@@ -1,2 +1,4 @@
-# Jekyll-Theme-Chooser
-Jekyll Theme Chooser for TIL's
+# Demo Jekyll-Theme-Chooser
+
+https://cgirish.github.io/jekyll-theme-chooser/
+
