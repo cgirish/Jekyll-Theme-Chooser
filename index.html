@@ -7,10 +7,18 @@ overview: true
   {% for post in site.posts %}
     <li>
       {{post.content}}
-      <div class="entry-meta">
+      <div class="author-info">
         <span><small class="profile icon"></small> {{post.author}}&nbsp;</span>
         <span><small class="tag icon"></small> {{post.tags}}&nbsp;</span>
         <span><small class="calendar icon"></small> {{post.date | date: "%d/%m/%Y" }}&nbsp;</span>
+        <span>
+          <span>Share this on &rarr;</span>
+          <a class="twitter" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ post.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter"><i></i></a>
+
+          <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?&href={{ site.url }}{{ post.url }}&redirect_uri={{ site.url }}{{ post.url }}" rel="nofollow" target="_blank" title="Share on Facebook"><i></i></a>
+
+          <a class="google-plus" href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}" rel="nofollow" target="_blank" title="Share on Google+"><i></i></a>
+        </span>
       </div>
     </li>
   {% endfor %}

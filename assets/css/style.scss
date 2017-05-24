@@ -3,7 +3,7 @@
 
 @import "{{ site.theme }}";
 
-$brand-color: #5774b8;
+$brand-color: #7b88a3;
 $body-bg: #f1f4f9;
 $header-bg: $brand-color;
 $icon-color: $brand-color;
@@ -14,25 +14,28 @@ body {
 
 .page-header {
   color: #fff;
-  padding: 24px 0;
+  padding: 12px 0;
   background: $header-bg;
 
   h1 {
-    font-size: 24px;
-    line-height: 48px;
-    letter-spacing: 3px;
-    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    margin: 0;
+    font-size: 0;
 
-    small {
-      display: block;
+    span {
+      font-size: 20px;
+      line-height: 48px;
+      letter-spacing: 1px;
+      font-weight: normal;
+      display: inline-block;
+      vertical-align: middle;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
     }
 
-    &:before, &:after {
-      content: "- - -";
-      opacity: 0.2;
-      margin: 0px 1em;
-      font-size: 1em;
+    &:before {
+      content: "";
+      height: 100%;
       display: inline-block;
+      vertical-align: middle;
     }
   }
 }
@@ -45,7 +48,7 @@ body {
     padding: 72px 0;
     list-style: none;
 
-    li {
+    & > li {
       margin-top: 72px;
       background-color: #fff;
       padding: 24px 30px 30px 30px;
@@ -68,7 +71,7 @@ body {
   text-align: right;
 }
 
-.entry-meta {
+.author-info {
   padding: 5px 0;
   font-size: 12px;
   border-top: 1px dotted #ccc;
@@ -87,15 +90,25 @@ body {
     }
 
     &:first-child {
-      width: 45%;
+      width: 30%;
     }
 
     &:nth-child(2) {
-      width: 35%;
+      width: 23%;
+    }
+
+    &:nth-child(3) {
+      width: 15%;
     }
 
     &:last-child {
-      width: 15%;
+      width: 30%;
+
+      span {
+        width: auto;
+        line-height: 20px;
+        vertical-align: middle;
+      }
     }
   }
 }
@@ -107,7 +120,10 @@ body {
 }
 
 
-// icons
+// icon reference -
+// http://cssicon.space/#/icon/profile
+// https://saeedalipoor.github.io/icono/
+// https://simpleicons.org/
 
 .icon {
   &:before,
@@ -201,6 +217,74 @@ body {
                 8px 4px 0 0 $icon-color;
   }
 }
+
+.logo,
+.twitter i,
+.facebook i,
+.google-plus i {
+  display: inline-block;
+  background: transparent url('../images/sprite.svg') 0 0 no-repeat;
+  background-size: 59px 64px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-position: -1px -1px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.twitter,
+.facebook,
+.google-plus {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: $brand-color;
+
+  i {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.twitter {
+  &:hover, &:focus, &:active {
+    background-color: #1DA1F2;
+  }
+
+  i {
+    background-position: -38px -22px;
+  }
+}
+
+.facebook {
+  &:hover, &:focus, &:active {
+    background-color: #3B5998;
+  }
+
+  i {
+    background-position: -38px -1px;
+  }
+}
+
+.google-plus {
+  &:hover, &:focus, &:active {
+    background-color: #DC4E41;
+  }
+
+  i {
+    background-position: -38px -43px;
+  }
+}
+
+
+// media queies
 
 @media (max-width: 768px) {
   .page-header {

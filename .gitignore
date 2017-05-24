@@ -1,0 +1,5 @@
+_site/
+Gemfile
+Gemfile.lock
+README.md
+_config.yml
