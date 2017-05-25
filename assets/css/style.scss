@@ -3,32 +3,40 @@
 
 @import "{{ site.theme }}";
 
-$brand-color: #7b88a3;
-$body-bg: #f1f4f9;
+$brand-color: darken(#135DFB, 10%);
+$text-color: #4D4D4D;
+$border-color: #ccc;
+$body-bg: #fff;
 $header-bg: $brand-color;
 $icon-color: $brand-color;
+$baseline: 24px;
 
 body {
+  margin: 0;
+  font-size: 0;
+  line-height: 1;
+  color: $text-color;
   background-color: $body-bg;
+  font-family: "Karla", sans-serif;
 }
 
 .page-header {
-  color: #fff;
-  padding: 12px 0;
-  background: $header-bg;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: $text-color;
 
   h1 {
-    margin: 0;
     font-size: 0;
+    margin: $baseline 0;
 
     span {
-      font-size: 20px;
-      line-height: 48px;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: 1px;
-      font-weight: normal;
       display: inline-block;
       vertical-align: middle;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+      line-height: $baseline * 2;
     }
 
     &:before {
@@ -45,17 +53,19 @@ body {
   padding-bottom: 0;
 
   & > ul {
-    padding: 72px 0;
+    margin: 0;
+    padding: 0 0 72px 0;
     list-style: none;
 
     & > li {
       margin-top: 72px;
-      background-color: #fff;
-      padding: 24px 30px 30px 30px;
+      padding-top: 72px;
+      background-color: none;
+      box-shadow: inset 0 1px 0 0 $border-color;
 
       li {
         padding: 0;
-        margin: 0 0 24px 0;
+        margin: 0 0 $baseline/2 0;
       }
     }
   }
@@ -63,7 +73,73 @@ body {
   .highlight {
     margin-bottom: 24px;
   }
+
+  pre {
+    border: none;
+    // background: none;
+    padding: $baseline;
+    border-radius: 4px;
+    line-height: $baseline;
+    margin: 0 0 $baseline 0;
+    box-shadow: inset 0 0 0 1px $border-color;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $text-color;
+    margin-bottom: $baseline;
+    margin-top: 0 !important;
+  }
+
+  h1, h2, h3, h4, h5,
+  h6, p, ol, ul, li {
+    margin: 0;
+    color: $text-color;
+    margin-bottom: $baseline; /* Baseline grid size */
+  }
+
+  h1 {
+    font-size: 50px;
+    line-height: $baseline * 3;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: 40px;
+    line-height: $baseline * 2;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 30px;
+    line-height: $baseline * 2;
+    font-weight: normal;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: $baseline;
+    font-weight: normal;
+  }
+
+  p, h5, li {
+    font-size: 16px;
+    line-height: $baseline;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 10px;
+    line-height: $baseline;
+  }
 }
+
+a {
+  color: $brand-color;
+}
+
 
 .author {
   font-size: 80%;
@@ -72,25 +148,26 @@ body {
 }
 
 .author-info {
-  padding: 5px 0;
+  padding: 0;
   font-size: 12px;
-  border-top: 1px dotted #ccc;
-  border-bottom: 1px dotted #ccc;
 
   span {
     position: relative;
-    padding-left: 24px;
     display: inline-block;
+    line-height: $baseline;
+    padding-left: $baseline;
 
     small {
       left: 0;
+      top: 4px;
       color: #999;
       font-size: 100%;
       position: absolute;
     }
 
     &:first-child {
-      width: 30%;
+      width: 25%;
+      margin-left: $baseline;
     }
 
     &:nth-child(2) {
@@ -106,19 +183,13 @@ body {
 
       span {
         width: auto;
-        line-height: 20px;
-        vertical-align: middle;
+        padding-left: 0;
+        vertical-align: top;
+        line-height: $baseline;
       }
     }
   }
 }
-
-.main-content {
-  h1, h2, h3, h4, h5, h6 {
-    color: $brand-color;
-  }
-}
-
 
 // icon reference -
 // http://cssicon.space/#/icon/profile
@@ -309,4 +380,43 @@ body {
     width: 100%;
     margin: 5px 0;
   }
+}
+
+
+.toggle-lines {
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#9cc), color-stop(4%, #fff)) 0 4px;
+  background: -webkit-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
+  background: -moz-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
+  background: -ms-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
+  background: -o-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
+  background: linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
+  -webkit-background-size: 100% 24px;
+  -moz-background-size: 100% 24px;
+  -ms-background-size: 100% 24px;
+  -o-background-size: 100% 24px;
+  background-size: 100% 24px;
+  background-position: top left;
+}
+
+.toggle-bg * {
+  background-color: rgba(0,255,0,0.15);
+}
+
+.btn-sticky {
+  bottom: 44px;
+  right: 44px;
+  position: fixed;
+  background: none !important;
+}
+
+button {
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 22px;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: #369 !important;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
 }
