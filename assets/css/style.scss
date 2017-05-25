@@ -3,13 +3,13 @@
 
 @import "{{ site.theme }}";
 
-$brand-color: darken(#135DFB, 10%);
-$text-color: #4D4D4D;
-$border-color: #ccc;
 $body-bg: #fff;
+$baseline: 20px;
+$border-color: #ccc;
+$text-color: #4D4D4D;
 $header-bg: $brand-color;
 $icon-color: $brand-color;
-$baseline: 24px;
+$brand-color: darken(#135DFB, 10%);
 
 body {
   margin: 0;
@@ -25,6 +25,7 @@ body {
   padding: 0;
   background: none;
   color: $text-color;
+  text-transform: uppercase;
 
   h1 {
     font-size: 0;
@@ -54,24 +55,24 @@ body {
 
   & > ul {
     margin: 0;
-    padding: 0 0 72px 0;
+    padding: 0 0 $baseline*3 0;
     list-style: none;
 
     & > li {
-      margin-top: 72px;
-      padding-top: 72px;
+      margin-top: $baseline*3;
+      padding-top: $baseline*3;
       background-color: none;
       box-shadow: inset 0 1px 0 0 $border-color;
 
       li {
         padding: 0;
-        margin: 0 0 $baseline/2 0;
+        margin: 0 0 $baseline 0;
       }
     }
   }
 
   .highlight {
-    margin-bottom: 24px;
+    margin-bottom: $baseline;
   }
 
   pre {
@@ -184,7 +185,7 @@ a {
       span {
         width: auto;
         padding-left: 0;
-        vertical-align: top;
+        vertical-align: middle;
         line-height: $baseline;
       }
     }
@@ -357,7 +358,7 @@ a {
 
 // media queies
 
-@media (max-width: 768px) {
+@media (max-width: 870px) {
   .page-header {
     h1 {
       line-height: 1.3;
@@ -369,14 +370,18 @@ a {
     }
   }
 
-  .entry-meta.entry-meta span {
+  .author-info.author-info span {
     width: 49%;
     margin: 5px 0;
+
+    &:last-child {
+      padding-left: 0;
+    }
   }
 }
 
 @media (max-width: 600px) {
-  .entry-meta.entry-meta span {
+  .author-info.author-info span {
     width: 100%;
     margin: 5px 0;
   }
@@ -390,11 +395,11 @@ a {
   background: -ms-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
   background: -o-linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
   background: linear-gradient(top, #9cc 0%, #fff 8%) 0 4px;
-  -webkit-background-size: 100% 24px;
-  -moz-background-size: 100% 24px;
-  -ms-background-size: 100% 24px;
-  -o-background-size: 100% 24px;
-  background-size: 100% 24px;
+  -webkit-background-size: 100% $baseline;
+  -moz-background-size: 100% $baseline;
+  -ms-background-size: 100% $baseline;
+  -o-background-size: 100% $baseline;
+  background-size: 100% $baseline;
   background-position: top left;
 }
 
@@ -403,8 +408,9 @@ a {
 }
 
 .btn-sticky {
-  bottom: 44px;
   right: 44px;
+  bottom: 44px;
+  display: none;
   position: fixed;
   background: none !important;
 }
