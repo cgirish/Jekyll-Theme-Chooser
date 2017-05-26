@@ -7,11 +7,8 @@ overview: true
   {% for post in site.posts %}
     <li>
       {{post.content}}
-      <div class="author-info">
-        <span><small class="profile icon"></small> {{post.author}}&nbsp;</span>
-        <span><small class="tag icon"></small> {{post.tags}}&nbsp;</span>
-        <span><small class="calendar icon"></small> {{post.date | date: "%d/%m/%Y" }}&nbsp;</span>
-        <span>
+      <div class="meta">
+        <span class="meta-share">
           <span>Share this on &rarr;</span>
           <a class="twitter" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ post.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter"><i></i></a>
 
@@ -19,6 +16,10 @@ overview: true
 
           <a class="google-plus" href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}" rel="nofollow" target="_blank" title="Share on Google+"><i></i></a>
         </span>
+        <a class="meta-author" href="#">{{post.author}}</a>
+        <span class="meta-date">{{post.date | date: "%d/%m/%Y" }}&nbsp;</span>
+        <span class="meta-tags">{{post.tags | join: ' ' }}</span>
+        <!-- <span class="meta-tags">{{post.tags | url_encode }}</span> -->
       </div>
     </li>
   {% endfor %}

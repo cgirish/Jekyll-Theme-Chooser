@@ -53,5 +53,23 @@
         }
       }
     </script>
+    <script type="text/javascript">
+      var all = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      var filterFn = function(x) {
+        if (x.getAttribute('id')) {
+          return x;
+        }
+      };
+
+      var selected = Array.prototype.filter.call(all, filterFn);
+      Array.prototype.forEach.call(selected, function(ele, i) {
+        var anchor = '<a class="inner-link" href="#' + ele.getAttribute('id') + '">#&nbsp;</a>';
+        ele.insertAdjacentHTML("afterBegin", anchor);
+      });
+      // ☍ - link icon
+    </script>
   </body>
 </html>
+
+<!-- https://robots.thoughtbot.com/ -->
+<!-- http://127.0.0.1:4000/ -->

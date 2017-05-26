@@ -6,7 +6,7 @@
 $body-bg: #fff;
 $baseline: 20px;
 $border-color: #ccc;
-$text-color: #4D4D4D;
+$text-color: #29292c;
 $brand-color: darken(#135DFB, 10%);
 $header-bg: $brand-color;
 $icon-color: $brand-color;
@@ -21,23 +21,23 @@ body {
 }
 
 .page-header {
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 740px;
   background: none;
   color: $text-color;
-  text-transform: uppercase;
 
   h1 {
     font-size: 0;
     margin: $baseline 0;
 
     span {
-      font-size: 2rem;
+      font-size: 38px;
       font-weight: 700;
       letter-spacing: 1px;
       display: inline-block;
       vertical-align: middle;
-      line-height: $baseline * 2;
+      line-height: $baseline*2;
     }
 
     &:before {
@@ -50,8 +50,9 @@ body {
 }
 
 .main-content {
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 740px;
 
   & > ul {
     margin: 0;
@@ -77,6 +78,7 @@ body {
 
   pre {
     border: none;
+    font-size: 14px;
     // background: none;
     padding: $baseline;
     border-radius: 4px;
@@ -91,6 +93,24 @@ body {
     margin-top: 0 !important;
   }
 
+  h2, h3, h4, h5, h6 {
+    position: relative;
+
+    .inner-link {
+      opacity: 0;
+      margin-left: -0.75em;
+      transform: rotate(45deg);
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:hover .inner-link {
+      animation: show-link 0.3s ease-in-out forwards;
+    }
+  }
+
   h1, h2, h3, h4, h5,
   h6, p, ol, ul, li {
     margin: 0;
@@ -100,24 +120,24 @@ body {
 
   h1 {
     font-size: 50px;
-    line-height: $baseline * 3;
+    line-height: $baseline*3;
     font-weight: normal;
   }
 
   h2 {
-    font-size: 40px;
-    line-height: $baseline * 2;
+    font-size: 37px;
+    line-height: $baseline*2;
     font-weight: normal;
   }
 
   h3 {
-    font-size: 30px;
-    line-height: $baseline * 2;
+    font-size: 28px;
+    line-height: $baseline*2;
     font-weight: normal;
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 21px;
     line-height: $baseline;
     font-weight: normal;
   }
@@ -132,8 +152,20 @@ body {
   }
 
   h6 {
-    font-size: 10px;
+    font-size: 12px;
     line-height: $baseline;
+  }
+}
+
+@keyframes show-link {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -141,157 +173,54 @@ a {
   color: $brand-color;
 }
 
-
-.author {
-  font-size: 80%;
-  font-style: italic;
-  text-align: right;
-}
-
-.author-info {
+.meta {
   padding: 0;
-  font-size: 12px;
   margin-top: $baseline*3;
+
+  a {
+    padding-right: $baseline;
+    text-transform: capitalize;
+  }
 
   span {
     position: relative;
     display: inline-block;
     line-height: $baseline;
-    padding-left: $baseline;
+    padding-right: $baseline;
+  }
 
-    small {
-      left: 0;
-      top: 2px;
-      color: #999;
-      font-size: 100%;
-      position: absolute;
-    }
+  .meta-author {
 
-    &:first-child {
-      width: 30%;
-      margin-left: $baseline;
-    }
+  }
 
-    &:nth-child(2) {
-      width: 23%;
-    }
+  .meta-date {
+    position: relative;
 
-    &:nth-child(3) {
-      width: 15%;
-    }
-
-    &:last-child {
-      width: 27%;
-
-      span {
-        width: auto;
-        padding-left: 0;
-        vertical-align: middle;
-        line-height: $baseline;
-      }
+    &:before {
+      content: "–";
+      margin: 0 20px 0 0;
     }
   }
+
+  .meta-tags {
+    font-size: 12px;
+    word-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .meta-share {
+    float: right;
+    display: none;
+    padding-right: 0;
+  }
 }
+
 
 // icon reference -
 // http://cssicon.space/#/icon/profile
 // https://saeedalipoor.github.io/icono/
 // https://simpleicons.org/
 
-.icon {
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-  }
-}
-
-.tag.icon {
-  width: 7px;
-  height: 7px;
-  color: #000;
-  margin-top: 2px;
-  border-radius: 1px 1px 1px 0;
-  border-left: solid 1px $icon-color;
-  border-top: solid 1px $icon-color;
-
-  &:before {
-    top: 1px;
-    left: 1px;
-    width: 9px;
-    height: 10px;
-    border-radius: 1px;
-    border-left: solid 1px $icon-color;
-    border-right: solid 1px $icon-color;
-    border-bottom: solid 1px $icon-color;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-  }
-  &:after {
-    top: 3px;
-    left: 3px;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background-color: $icon-color;
-  }
-}
-
-.profile.icon {
-  color: #000;
-  width: 14px;
-  height: 6px;
-  margin-top: 10px;
-  border-left: solid 1px $icon-color;
-  border-right: solid 1px $icon-color;
-  border-top: solid 1px $icon-color;
-  border-bottom: solid 1px transparent;
-  border-radius: 6px 6px 0 0;
-
-  &:before {
-    left: 1px;
-    top: -10px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: solid 1px $icon-color;
-  }
-}
-
-.calendar.icon {
-  color: #000;
-  width: 16px;
-  height: 14px;
-  margin-top: 2px;
-  border-radius: 1px;
-  border: solid 1px $icon-color;
-  box-shadow: inset 0 2px 0 0 $icon-color;
-
-  &:before {
-    top: -3px;
-    left: 3px;
-    width: 1px;
-    height: 2px;
-    background-color: $icon-color;
-    box-shadow: 8px 0 0 0 $icon-color;
-  }
-
-  &:after {
-    top: 4px;
-    left: 2px;
-    width: 2px;
-    height: 2px;
-    background-color: $icon-color;
-    box-shadow: 4px 0 0 0 $icon-color,
-                8px 0 0 0 $icon-color,
-
-                0px 4px 0 0 $icon-color,
-                4px 4px 0 0 $icon-color,
-                8px 4px 0 0 $icon-color;
-  }
-}
-
-.logo,
 .twitter i,
 .facebook i,
 .google-plus i {
@@ -386,6 +315,10 @@ a {
     width: 100%;
     margin: 5px 0;
   }
+
+  .meta .meta-tags {
+    margin-top: 20px;
+  }
 }
 
 
@@ -411,7 +344,7 @@ a {
 .btn-sticky {
   right: 44px;
   bottom: 44px;
-  display: none;
+  // display: none;
   position: fixed;
   background: none !important;
 }
