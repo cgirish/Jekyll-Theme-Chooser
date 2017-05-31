@@ -4,60 +4,52 @@
 @import "{{ site.theme }}";
 
 $body-bg: #fff;
-$baseline: 20px;
+$baseline: 22px;
 $border-color: #ccc;
-$text-color: #29292c;
-$brand-color: darken(#135DFB, 10%);
+$text-color: #444;
+$brand-color: darken(#0366d6, 10%);
 $header-bg: $brand-color;
 $icon-color: $brand-color;
+$link-color: #0366d6;
 
 body {
   margin: 0;
   font-size: 0;
   line-height: 1;
   color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  background: #f9f9f9;
   background-color: $body-bg;
-  font-family: "Karla", sans-serif;
+  font-family: "Crimson Text", "Georgia", serif;
 }
 
 .page-header {
   margin: 0 auto;
-  padding: 0 20px;
   max-width: 740px;
   background: none;
+  text-align: left;
   color: $text-color;
+  padding: 0 $baseline;
 
   h1 {
-    font-size: 0;
-    margin: $baseline 0;
-
-    span {
-      font-size: 38px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: $baseline*2;
-    }
-
-    &:before {
-      content: "";
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle;
-    }
+    font-size: 40px;
+    font-weight: 700;
+    margin: $baseline*2 0;
+    line-height: $baseline*2;
+    font-family: sans-serif;
   }
 }
 
 .main-content {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 $baseline;
   max-width: 740px;
 
   & > ul {
     margin: 0;
-    padding: 0 0 $baseline*3 0;
     list-style: none;
+    padding: 0 0 $baseline*3 0;
 
     & > li {
       margin-top: $baseline*3;
@@ -87,14 +79,19 @@ body {
     box-shadow: inset 0 0 0 1px $border-color;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5,
+  h6, p, ol, ul, li {
+    margin: 0;
     color: $text-color;
-    margin-bottom: $baseline;
-    margin-top: 0 !important;
+    margin-bottom: $baseline; /* Baseline grid size */
   }
 
-  h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
     position: relative;
+    font-weight: bold;
+    margin-bottom: $baseline;
+    margin-top: 0 !important;
 
     .inner-link {
       opacity: 0;
@@ -111,44 +108,29 @@ body {
     }
   }
 
-  h1, h2, h3, h4, h5,
-  h6, p, ol, ul, li {
-    margin: 0;
-    color: $text-color;
-    margin-bottom: $baseline; /* Baseline grid size */
-  }
-
   h1 {
     font-size: 50px;
     line-height: $baseline*3;
-    font-weight: normal;
   }
 
   h2 {
     font-size: 37px;
     line-height: $baseline*2;
-    font-weight: normal;
   }
 
   h3 {
     font-size: 28px;
     line-height: $baseline*2;
-    font-weight: normal;
   }
 
-  h4 {
+  p, h4, li {
     font-size: 21px;
-    line-height: $baseline;
-    font-weight: normal;
-  }
-
-  p, h5, li {
-    font-size: 16px;
     line-height: $baseline;
   }
 
   h5 {
-    font-weight: bold;
+    font-size: 16px;
+    line-height: $baseline;
   }
 
   h6 {
@@ -170,17 +152,16 @@ body {
 }
 
 a {
-  color: $brand-color;
+  color: $link-color;
 }
 
 .meta {
   padding: 0;
-  margin-top: $baseline*3;
-
-  a {
-    padding-right: $baseline;
-    text-transform: capitalize;
-  }
+  color: #999;
+  font-size: 16px;
+  font-style: normal;
+  margin: $baseline*2 0;
+  font-family: sans-serif;
 
   span {
     position: relative;
@@ -190,7 +171,8 @@ a {
   }
 
   .meta-author {
-
+    padding-right: $baseline;
+    text-transform: capitalize;
   }
 
   .meta-date {
@@ -204,13 +186,11 @@ a {
 
   .meta-tags {
     font-size: 12px;
-    word-spacing: 5px;
     text-transform: uppercase;
   }
 
   .meta-share {
     float: right;
-    display: none;
     padding-right: 0;
   }
 }
@@ -247,7 +227,7 @@ a {
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-  background-color: $brand-color;
+  background-color: #999;
 
   i {
     width: 20px;
